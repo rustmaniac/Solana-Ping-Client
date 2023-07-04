@@ -10,6 +10,7 @@ async function main() {
     // console.log(newKeypair.secretKey.toString())
     const payer = initializeKeypair()
     const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
+    await connection.requestAirdrop(payer.publicKey, web3.LAMPORTS_PER_SOL * 1)
     await pingProgram(connection, payer)
 }
 
